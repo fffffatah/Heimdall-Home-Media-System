@@ -2,6 +2,7 @@ version: '3.9'
 
 services: 
   app:
+    image: fffffatah/heimdall-home-media-system:v1.0.0
     build:
         context: .
         dockerfile: .docker/Dockerfile
