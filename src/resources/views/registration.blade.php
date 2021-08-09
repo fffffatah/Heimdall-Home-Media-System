@@ -39,7 +39,7 @@
                     </li>
                 </ul>
                 <div class="card-footer">
-                    <a class="btn btn-outline-danger" href="{{route('login.index')}}">Back</a><span style="padding-right:5px;"></span><button class="btn btn-success" type="submit"><i class="fas fa-login"></i> Register</button>
+                    <a class="btn btn-outline-danger" href="{{route('login.index')}}"><i class="fas fa-arrow-circle-left"></i> Back</a><span style="padding-right:5px;"></span><button class="btn btn-success" type="submit"><i class="fas fa-login"></i><i class="fas fa-user-plus"></i> Register</button>
                 </div>
             </div>
             </div>

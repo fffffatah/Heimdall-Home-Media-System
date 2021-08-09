@@ -28,7 +28,7 @@
                     <li class="list-group-item"><a href="#"><U>First Time? Set New Password.</U></a></li>
                 </ul>
                 <div class="card-footer">
-                    <button class="btn btn-success" type="submit"><i class="fas fa-login"></i> Login</button><span style="padding-right:5px;"></span><a class="btn btn-outline-primary" href="{{route('registration.registration')}}">Register</a>
+                    <button class="btn btn-success" type="submit"><i class="fas fa-sign-in-alt"></i> Login</button><span style="padding-right:5px;"></span><a class="btn btn-outline-primary" href="{{route('registration.registration')}}"><i class="fas fa-user-plus"></i> Register</a>
                 </div>
             </div>
             </div>
