@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-
+use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\RegistrationRequest;
 
 class RegistrationController extends Controller
@@ -16,12 +16,11 @@ class RegistrationController extends Controller
     public function registration(RegistrationRequest $request)
     {
         $img = $request->file('avatar');
-        $user=new User;
-        $user->fullname = $request->firstname;
-        $user->username = $request->lastname;
-        $user->password = $request->username;
+        $user = new User;
+        $user->fullname = $request->fullname;
+        $user->username = $request->username;
+        $user->password = Hash::make($request->password);
         $user->type = 'admin';
-        $user->level = '2';
         $user->isagerestricted = 'false';
         $user->avatar = uniqid().".".$img->getClientOriginalExtension();
         if($user->save()){

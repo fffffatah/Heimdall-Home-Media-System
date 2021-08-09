@@ -79,7 +79,7 @@
             <li><a class="dropdown-item" href="#"><i class="fas fa-users"></i> Users</a></li>
             <li><a class="dropdown-item" href="#"><i class="fas fa-cog"></i> System Settings</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            <li><a class="dropdown-item" href="{{route('logout.index')}}"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
           </ul>
         </li>
     </div>

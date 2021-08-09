@@ -29,6 +29,7 @@ class RegistrationRequest extends FormRequest
             'password'=> 'required|string|min:8|max:20|confirmed|regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/',
             'fullname' => 'required|min:12|max:24',
             'avatar' => 'required|mimes:jpg,jpeg,png',
+            'password_confirmation' => 'required',
         ];
     }
     public function messages(){
@@ -41,8 +42,12 @@ class RegistrationRequest extends FormRequest
             'fullname.max' => '* Must be <= 24 Characters',
             'password.required' => '* Password Required',
             'password.confirmed' => '* Password Must Match Confirm Password',
+            'password.min' => '* Must be >= 8 Characters',
+            'password.max' => '* Must be <= 20 Characters',
+            'password.regex' => '* Must Contain Number & Special Character',
             'avatar.required' => '* Avatar Required',
             'avatar.mimes' => '* Invalid Image Type',
+            'password_confirmation.required' => '* Confirm Password Required',
         ];
     }
 }

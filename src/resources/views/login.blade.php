@@ -22,6 +22,9 @@
                         <input class="form-control me-2" name="password" type="password" placeholder="Password" aria-label="Password">
                         <span style="color:red;">{{$errors->first('password')}}</span>
                     </li>
+                    <li class="list-group-item">
+                        <input class="form-check-input" type="checkbox" value="true" name="remember" id="flexCheckDefault"> Remember Me
+                    </li>
                     <li class="list-group-item"><a href="#"><U>First Time? Set New Password.</U></a></li>
                 </ul>
                 <div class="card-footer">

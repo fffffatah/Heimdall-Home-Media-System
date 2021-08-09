@@ -6,7 +6,7 @@
     </head>
     <body>
         <center>
-        <form action="" method="post">
+        <form action="" method="post" enctype="multipart/form-data">
             @csrf
             <div class="d-flex justify-content-center">
             <div class="card" style="width: 18rem;">
@@ -34,8 +34,8 @@
                         <span style="color:red;">{{$errors->first('password')}}</span>
                     </li>
                     <li class="list-group-item">
-                        <input class="form-control me-2" name="pass_confirmation" type="password" placeholder="Confirm Password" aria-label="Confirm Password">
-                        <span style="color:red;">{{$errors->first('pass_confirmation')}}</span>
+                        <input class="form-control me-2" name="password_confirmation" type="password" placeholder="Confirm Password" aria-label="Confirm Password">
+                        <span style="color:red;">{{$errors->first('password_confirmation')}}</span>
                     </li>
                 </ul>
                 <div class="card-footer">
