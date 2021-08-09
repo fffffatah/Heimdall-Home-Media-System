@@ -19,12 +19,14 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fas fa-film"></i> Movies
+            <i class="fas fa-film"></i> Movies & TV
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="#">My Movies</a></li>
+            <li><a class="dropdown-item" href="#">My TV Shows</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#"><i class="fas fa-file-upload"></i> Upload</a></li>
+            <li><a class="dropdown-item" href="#"><i class="fas fa-file-upload"></i> Upload Movie</a></li>
+            <li><a class="dropdown-item" href="#"><i class="fas fa-file-upload"></i> Upload TV</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
