@@ -1,0 +1,34 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\RegistrationRequest;
+
+class RegistrationController extends Controller
+{
+    public function index(){
+        return view('registration');
+    }
+
+    public function registration(RegistrationRequest $request)
+    {
+        $img = $request->file('avatar');
+        $user = new User;
+        $user->fullname = $request->fullname;
+        $user->username = $request->username;
+        $user->password = Hash::make($request->password);
+        $user->type = 'admin';
+        $user->isagerestricted = 'false';
+        $user->avatar = uniqid().".".$img->getClientOriginalExtension();
+        if($user->save()){
+            $request->session()->flash('msg', 'Admin Account Created');
+        }
+        else{
+            $request->session()->flash('msg', 'Admin Account Creation Failed');
+        }
+        return redirect()->route('login.index');
+    }
+}
