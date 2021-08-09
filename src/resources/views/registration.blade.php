@@ -7,13 +7,24 @@
     <body>
         <center>
         <form action="" method="post">
-                @csrf
+            @csrf
             <div class="d-flex justify-content-center">
             <div class="card" style="width: 18rem;">
                 <div class="card-header">
-                    Login
+                    Register as Admin
                 </div>
-                <ul class="list-group">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <div class="input-group mb-3">
+                            <label class="input-group-text" for="inputGroupFile01">Avatar</label>
+                            <input type="file" value="{{old('avatar')}}" name="avatar" class="form-control" id="inputGroupFile01">
+                        </div>
+                        <span style="color:red;">{{$errors->first('avatar')}}</span>
+                    </li>
+                    <li class="list-group-item">
+                        <input class="form-control me-2" value="{{old('fullname')}}" name="fullname" type="text" placeholder="Fullname" aria-label="Fullname">
+                        <span style="color:red;">{{$errors->first('fullname')}}</span>
+                    </li>
                     <li class="list-group-item">
                         <input class="form-control me-2" name="username" value="{{old('username')}}" type="text" placeholder="Username" aria-label="Username">
                         <span style="color:red;">{{$errors->first('username')}}</span>
@@ -22,10 +33,13 @@
                         <input class="form-control me-2" name="password" type="password" placeholder="Password" aria-label="Password">
                         <span style="color:red;">{{$errors->first('password')}}</span>
                     </li>
-                    <li class="list-group-item"><a href="#"><U>First Time? Set New Password.</U></a></li>
+                    <li class="list-group-item">
+                        <input class="form-control me-2" name="pass_confirmation" type="password" placeholder="Confirm Password" aria-label="Confirm Password">
+                        <span style="color:red;">{{$errors->first('pass_confirmation')}}</span>
+                    </li>
                 </ul>
                 <div class="card-footer">
-                    <button class="btn btn-success" type="submit"><i class="fas fa-login"></i> Login</button><span style="padding-right:5px;"></span><a class="btn btn-outline-primary" href="{{route('registration.registration')}}">Register</a>
+                    <a class="btn btn-outline-danger" href="{{route('login.index')}}">Back</a><span style="padding-right:5px;"></span><button class="btn btn-success" type="submit"><i class="fas fa-login"></i> Register</button>
                 </div>
             </div>
             </div>

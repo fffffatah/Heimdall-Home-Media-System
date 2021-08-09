@@ -14,5 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('dashboard');
+    return redirect()->route('login.index');
 });
+//LOGIN AND REGISTRATION
+Route::get('login', ['as'=>'login.index', 'uses'=>'LoginController@index']);
+Route::post('login', ['as'=>'login.authenticate', 'uses'=>'LoginController@authenticate']);
+Route::get('registration', ['as'=>'registration.index', 'uses'=>'RegistrationController@index']);
+Route::post('registration', ['as'=>'registration.registration', 'uses'=>'RegistrationController@registration']);
