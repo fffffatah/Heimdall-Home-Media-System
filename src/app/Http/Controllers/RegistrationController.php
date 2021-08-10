@@ -25,6 +25,7 @@ class RegistrationController extends Controller
         $user->isagerestricted = 'false';
         $user->avatar = uniqid().".".$img->getClientOriginalExtension();
         if($user->save()){
+            $img->move('upload/avatars', $user->avatar);
             $request->session()->flash('msg', 'Admin Account Created');
         }
         else{
