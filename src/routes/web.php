@@ -20,10 +20,12 @@ Route::get('/', function () {
 Route::group(['middleware' => ['rememberme']], function () {
     Route::get('login', ['as'=>'login.index', 'uses'=>'LoginController@index']);
     Route::get('registration', ['as'=>'registration.index', 'uses'=>'RegistrationController@index']);
+    Route::get('setpass', ['as'=>'setpass.index', 'uses'=>'RegistrationController@setPassIndex']);
 });
 Route::post('login', ['as'=>'login.authenticate', 'uses'=>'LoginController@authenticate']);
 Route::post('registration', ['as'=>'registration.registration', 'uses'=>'RegistrationController@registration']);
 Route::get('logout', ['as'=>'logout.index', 'uses'=>'LogoutController@index']);
+Route::post('setpass', ['as'=>'setpass.set', 'uses'=>'RegistrationController@setNewPass']);
 
 Route::group(['middleware' => ['authuser']], function () {
     Route::group(['middleware' => ['iskid']], function () {

@@ -11,7 +11,7 @@
             <div class="d-flex justify-content-center">
             <div class="card" style="width: 18rem;">
                 <div class="card-header">
-                    Login
+                    Set New Password
                 </div>
                 <ul class="list-group">
                     <li class="list-group-item">
@@ -19,16 +19,16 @@
                         <span style="color:red;">{{$errors->first('username')}}</span>
                     </li>
                     <li class="list-group-item">
-                        <input class="form-control me-2" name="password" type="password" placeholder="Password" aria-label="Password">
+                        <input class="form-control me-2" name="password" type="text" placeholder="Password" aria-label="Password">
                         <span style="color:red;">{{$errors->first('password')}}</span>
                     </li>
                     <li class="list-group-item">
-                        <input class="form-check-input" type="checkbox" value="true" name="remember" id="flexCheckDefault"> Remember Me
+                        <input class="form-control me-2" name="password_confirmation" type="text" placeholder="Password" aria-label="Password">
+                        <span style="color:red;">{{$errors->first('password')}}</span>
                     </li>
-                    <li class="list-group-item"><a href="{{route('setpass.index')}}"><U>First Time? Set New Password.</U></a></li>
                 </ul>
                 <div class="card-footer">
-                    <button class="btn btn-success" type="submit"><i class="fas fa-sign-in-alt"></i> Login</button><span style="padding-right:5px;"></span><a class="btn btn-outline-primary" href="{{route('registration.registration')}}"><i class="fas fa-user-plus"></i> Register</a>
+                    <a class="btn btn-outline-danger" href="{{route('login.index')}}"><i class="fas fa-arrow-circle-left"></i> Back</a><span style="padding-right:5px;"></span><button class="btn btn-success" type="submit"><i class="fas fa-login"></i><i class="fas fa-check-circle"></i> Set</button>
                 </div>
             </div>
             </div>

@@ -9,6 +9,7 @@
                     <tr>
                         <th scope="col">#SR</th>
                         <th scope="col">Name</th>
+                        <th scope="col">Username</th>
                         <th scope="col">Type</th>
                         <th scope="col">Age Restriction</th>
                         <th scope="col">Remove</th>
@@ -18,6 +19,7 @@
                     <tr>
                         <td>{{$loop->iteration-1}}</td>
                         <td>{{$user->fullname}}</td>
+                        <td>{{$user->username}}</td>
                         <td>{{$user->type}}</td>
                         <td>{{$user->isagerestricted}}</td>
                         <td><a class="btn btn-outline-danger" href="/users/{{$user->id}}">Remove</a></td>
