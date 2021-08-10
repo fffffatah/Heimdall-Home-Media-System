@@ -24,9 +24,11 @@
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="#">My Movies</a></li>
             <li><a class="dropdown-item" href="#">My TV Shows</a></li>
+            @if(Auth::user()->type != 'kid')
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#"><i class="fas fa-file-upload"></i> Upload Movie</a></li>
             <li><a class="dropdown-item" href="#"><i class="fas fa-file-upload"></i> Upload TV</a></li>
+            @endif
           </ul>
         </li>
         <li class="nav-item dropdown">
@@ -35,8 +37,10 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="#">My Music</a></li>
+            @if(Auth::user()->type != 'kid')
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#"><i class="fas fa-file-upload"></i> Upload</a></li>
+            @endif
           </ul>
         </li>
         <li class="nav-item dropdown">
@@ -45,8 +49,10 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="#">My Pictures</a></li>
+            @if(Auth::user()->type != 'kid')
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#"><i class="fas fa-file-upload"></i> Upload</a></li>
+            @endif
           </ul>
         </li>
         <li class="nav-item dropdown">
@@ -55,8 +61,10 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="#">My Videos</a></li>
+            @if(Auth::user()->type != 'kid')
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#"><i class="fas fa-file-upload"></i> Upload</a></li>
+            @endif
           </ul>
         </li>
         <li class="nav-item dropdown">
@@ -65,8 +73,10 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="#">My Files</a></li>
+            @if(Auth::user()->type != 'kid')
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#"><i class="fas fa-file-upload"></i> Upload</a></li>
+            @endif
           </ul>
         </li>
       </ul>
@@ -78,9 +88,11 @@
           </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="#"><i class="fas fa-id-card"></i> Account Settings</a></li>
+            @if(Auth::user()->type != 'kid')
             <li><a class="dropdown-item" href="{{route('users.index')}}"><i class="fas fa-users"></i> Users</a></li>
             <li><a class="dropdown-item" href="{{route('adduser.index')}}"><i class="fas fa-user-plus"></i> Add User</a></li>
             <li><a class="dropdown-item" href="#"><i class="fas fa-cog"></i> System Settings</a></li>
+            @endif
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="{{route('logout.index')}}"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
           </ul>
