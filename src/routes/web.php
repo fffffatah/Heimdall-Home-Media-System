@@ -19,14 +19,20 @@ Route::get('/', function () {
 //LOGIN AND REGISTRATION
 Route::group(['middleware' => ['rememberme']], function () {
     Route::get('login', ['as'=>'login.index', 'uses'=>'LoginController@index']);
+    Route::get('registration', ['as'=>'registration.index', 'uses'=>'RegistrationController@index']);
 });
 Route::post('login', ['as'=>'login.authenticate', 'uses'=>'LoginController@authenticate']);
-Route::get('registration', ['as'=>'registration.index', 'uses'=>'RegistrationController@index']);
 Route::post('registration', ['as'=>'registration.registration', 'uses'=>'RegistrationController@registration']);
 Route::get('logout', ['as'=>'logout.index', 'uses'=>'LogoutController@index']);
 
-
-
 Route::group(['middleware' => ['authuser']], function () {
-    Route::get('dashboard', ['as'=>'dashboard.index', 'uses'=>'DashboardController@index']);
+    Route::group(['middleware' => ['iskid']], function () {
+        Route::get('dashboard', ['as'=>'dashboard.index', 'uses'=>'DashboardController@index']);
+        Route::group(['middleware' => ['isadmin']], function () {
+            Route::get('users', ['as'=>'users.index', 'uses'=>'UserController@index']);
+            Route::get('users/{id}', ['as'=>'users.delete', 'uses'=>'UserController@deleteUser']);
+            Route::get('adduser', ['as'=>'adduser.index', 'uses'=>'UserController@addUserIndex']);
+            Route::post('adduser', ['as'=>'adduser.addUser', 'uses'=>'UserController@addUser']);
+        });
+    });
 });
