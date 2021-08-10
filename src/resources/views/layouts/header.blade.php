@@ -67,18 +67,18 @@
             @endif
           </ul>
         </li>
+        @if(Auth::user()->type != 'kid')
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="fas fa-file"></i> Files
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="#">My Files</a></li>
-            @if(Auth::user()->type != 'kid')
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#"><i class="fas fa-file-upload"></i> Upload</a></li>
-            @endif
           </ul>
         </li>
+        @endif
       </ul>
     </div>
     <div class="navbar-nav ml-auto">
