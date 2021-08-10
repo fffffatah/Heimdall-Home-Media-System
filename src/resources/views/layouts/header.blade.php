@@ -22,11 +22,13 @@
             <i class="fas fa-film"></i> Movies & TV
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">My Movies</a></li>
+            <li><a class="dropdown-item" href="{{route('movie.index')}}">My Movies</a></li>
             <li><a class="dropdown-item" href="#">My TV Shows</a></li>
+            @if(Auth::user()->type != 'kid')
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#"><i class="fas fa-file-upload"></i> Upload Movie</a></li>
+            <li><a class="dropdown-item" href="{{route('uploadmovie.index')}}"><i class="fas fa-file-upload"></i> Upload Movie</a></li>
             <li><a class="dropdown-item" href="#"><i class="fas fa-file-upload"></i> Upload TV</a></li>
+            @endif
           </ul>
         </li>
         <li class="nav-item dropdown">
@@ -35,8 +37,10 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="#">My Music</a></li>
+            @if(Auth::user()->type != 'kid')
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#"><i class="fas fa-file-upload"></i> Upload</a></li>
+            @endif
           </ul>
         </li>
         <li class="nav-item dropdown">
@@ -45,8 +49,10 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="#">My Pictures</a></li>
+            @if(Auth::user()->type != 'kid')
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#"><i class="fas fa-file-upload"></i> Upload</a></li>
+            @endif
           </ul>
         </li>
         <li class="nav-item dropdown">
@@ -55,10 +61,13 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="#">My Videos</a></li>
+            @if(Auth::user()->type != 'kid')
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#"><i class="fas fa-file-upload"></i> Upload</a></li>
+            @endif
           </ul>
         </li>
+        @if(Auth::user()->type != 'kid')
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="fas fa-file"></i> Files
@@ -69,6 +78,7 @@
             <li><a class="dropdown-item" href="#"><i class="fas fa-file-upload"></i> Upload</a></li>
           </ul>
         </li>
+        @endif
       </ul>
     </div>
     <div class="navbar-nav ml-auto">
@@ -77,10 +87,13 @@
             <i class="fas fa-address-card"></i> Profile
           </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#"><i class="fas fa-id-card"></i> Account Settings</a></li>
+            <li><a class="dropdown-item" href="{{route('myaccount.index')}}"><i class="fas fa-id-card"></i> Account Settings</a></li>
+            <li><a class="dropdown-item" href="{{route('changepass.index')}}"><i class="fas fa-user-edit"></i> Change Password</a></li>
+            @if(Auth::user()->type != 'kid')
             <li><a class="dropdown-item" href="{{route('users.index')}}"><i class="fas fa-users"></i> Users</a></li>
             <li><a class="dropdown-item" href="{{route('adduser.index')}}"><i class="fas fa-user-plus"></i> Add User</a></li>
             <li><a class="dropdown-item" href="#"><i class="fas fa-cog"></i> System Settings</a></li>
+            @endif
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="{{route('logout.index')}}"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
           </ul>
