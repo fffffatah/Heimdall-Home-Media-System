@@ -36,12 +36,20 @@ Route::group(['middleware' => ['authuser']], function () {
         Route::post('myaccount', ['as'=>'myaccount.update', 'uses'=>'AccountController@updateUser']);
         Route::get('changepass', ['as'=>'changepass.index', 'uses'=>'AccountController@changePassIndex']);
         Route::post('changepass', ['as'=>'changepass.change', 'uses'=>'AccountController@changePass']);
+        //MOVIES
+        Route::get('movies', ['as'=>'movie.index', 'uses'=>'MovieController@movieIndex']);
+        Route::get('movieplayer/{id}', ['as'=>'movieplayer.index', 'uses'=>'MovieController@playMovie']);
+        Route::get('tvplayer/{id}', ['as'=>'tvplayer.index', 'uses'=>'MovieController@playTv']);
 
         Route::group(['middleware' => ['isadmin']], function () {
             Route::get('users', ['as'=>'users.index', 'uses'=>'UserController@index']);
             Route::get('users/{id}', ['as'=>'users.delete', 'uses'=>'UserController@deleteUser']);
             Route::get('adduser', ['as'=>'adduser.index', 'uses'=>'UserController@addUserIndex']);
             Route::post('adduser', ['as'=>'adduser.addUser', 'uses'=>'UserController@addUser']);
+            //MOVIE
+            Route::get('movies/{id}', ['as'=>'movie.delete', 'uses'=>'MovieController@deleteMovie']);
+            Route::get('uploadmovie', ['as'=>'uploadmovie.index', 'uses'=>'MovieController@uploadMovieIndex']);
+            Route::post('uploadmovie', ['as'=>'uploadmovie.index', 'uses'=>'MovieController@uploadMovie']);
         });
     });
 });
