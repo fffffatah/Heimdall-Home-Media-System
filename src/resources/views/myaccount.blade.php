@@ -1,5 +1,6 @@
 @include('layouts.header')
 <center>
+<div style="padding-top:20px;">
 <form action="" method="post" enctype="multipart/form-data">
             @csrf
             <div class="d-flex justify-content-center">

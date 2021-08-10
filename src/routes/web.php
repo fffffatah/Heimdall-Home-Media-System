@@ -34,6 +34,8 @@ Route::group(['middleware' => ['authuser']], function () {
         //ACCOUNT UPDATE
         Route::get('myaccount', ['as'=>'myaccount.index', 'uses'=>'AccountController@index']);
         Route::post('myaccount', ['as'=>'myaccount.update', 'uses'=>'AccountController@updateUser']);
+        Route::get('changepass', ['as'=>'changepass.index', 'uses'=>'AccountController@changePassIndex']);
+        Route::post('changepass', ['as'=>'changepass.change', 'uses'=>'AccountController@changePass']);
 
         Route::group(['middleware' => ['isadmin']], function () {
             Route::get('users', ['as'=>'users.index', 'uses'=>'UserController@index']);
