@@ -27,9 +27,14 @@ Route::post('registration', ['as'=>'registration.registration', 'uses'=>'Registr
 Route::get('logout', ['as'=>'logout.index', 'uses'=>'LogoutController@index']);
 Route::post('setpass', ['as'=>'setpass.set', 'uses'=>'RegistrationController@setNewPass']);
 
+
 Route::group(['middleware' => ['authuser']], function () {
     Route::group(['middleware' => ['iskid']], function () {
         Route::get('dashboard', ['as'=>'dashboard.index', 'uses'=>'DashboardController@index']);
+        //ACCOUNT UPDATE
+        Route::get('myaccount', ['as'=>'myaccount.index', 'uses'=>'AccountController@index']);
+        Route::post('myaccount', ['as'=>'myaccount.update', 'uses'=>'AccountController@updateUser']);
+
         Route::group(['middleware' => ['isadmin']], function () {
             Route::get('users', ['as'=>'users.index', 'uses'=>'UserController@index']);
             Route::get('users/{id}', ['as'=>'users.delete', 'uses'=>'UserController@deleteUser']);

@@ -87,7 +87,7 @@
             <i class="fas fa-address-card"></i> Profile
           </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#"><i class="fas fa-id-card"></i> Account Settings</a></li>
+            <li><a class="dropdown-item" href="{{route('myaccount.index')}}"><i class="fas fa-id-card"></i> Account Settings</a></li>
             @if(Auth::user()->type != 'kid')
             <li><a class="dropdown-item" href="{{route('users.index')}}"><i class="fas fa-users"></i> Users</a></li>
             <li><a class="dropdown-item" href="{{route('adduser.index')}}"><i class="fas fa-user-plus"></i> Add User</a></li>
