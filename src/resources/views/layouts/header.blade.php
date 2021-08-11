@@ -96,10 +96,6 @@
           </ul>
         </li>
     </div>
-        <span style="padding-right:7px;"></span>
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-success" type="submit"><i class="fas fa-search"></i> Search</button>
-        </form>
+        <span style="padding-right:80px;"></span>
   </div>
 </nav>
