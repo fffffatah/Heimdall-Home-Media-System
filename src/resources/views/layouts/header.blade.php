@@ -37,10 +37,10 @@
             <i class="fas fa-music"></i> Music
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">My Music</a></li>
+            <li><a class="dropdown-item" href="{{route('albums.index')}}">My Music</a></li>
             @if(Auth::user()->type != 'kid')
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#"><i class="fas fa-file-upload"></i> Upload</a></li>
+            <li><a class="dropdown-item" href="{{route('uploadalbum.index')}}"><i class="fas fa-file-upload"></i> Upload</a></li>
             @endif
           </ul>
         </li>

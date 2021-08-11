@@ -42,6 +42,9 @@ Route::group(['middleware' => ['authuser']], function () {
         Route::get('tvplayer/{id}', ['as'=>'tvplayer.index', 'uses'=>'MovieController@playTv']);
         Route::get('shows', ['as'=>'shows.index', 'uses'=>'MovieController@showIndex']);
         Route::get('episodes/{id}', ['as'=>'episodes.index', 'uses'=>'MovieController@episodeIndex']);
+        //ALBUM AND SONGS
+        Route::get('albums', ['as'=>'albums.index', 'uses'=>'MusicController@albumIndex']);
+        Route::get('songs/{id}', ['as'=>'songs.index', 'uses'=>'MusicController@songIndex']);
 
         Route::group(['middleware' => ['isadmin']], function () {
             Route::get('users', ['as'=>'users.index', 'uses'=>'UserController@index']);
@@ -59,6 +62,12 @@ Route::group(['middleware' => ['authuser']], function () {
 
             Route::get('shows/{id}', ['as'=>'shows.delete', 'uses'=>'MovieController@deleteShow']);
             Route::get('episode/{id}', ['as'=>'episodes.delete', 'uses'=>'MovieController@deleteEpisode']);
+
+            Route::get('uploadalbum', ['as'=>'uploadalbum.index', 'uses'=>'MusicController@uploadAlbumIndex']);
+            Route::post('uploadalbum', ['as'=>'uploadalbum.index', 'uses'=>'MusicController@uploadAlbum']);
+
+            Route::get('album/{id}', ['as'=>'albums.delete', 'uses'=>'MusicController@deleteAlbum']);
+            Route::get('song/{id}', ['as'=>'songs.delete', 'uses'=>'MusicController@deleteSong']);
         });
     });
 });

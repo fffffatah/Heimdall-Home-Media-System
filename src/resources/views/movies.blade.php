@@ -26,7 +26,7 @@
                         <td>{{$movie->description}}</td>
                         <td>{{$movie->genre}}</td>
                         <td>{{$movie->year}}</td>
-                        <td><a class="btn btn-outline-primary" href="/movieplayer/{{$movie->id}}"><i class="fas fa-play"></i> Play</a></td>
+                        <td><a class="btn btn-outline-primary" href="/movieplayer/{{$movie->id}}"><i class="fas fa-eye"></i> Play</a></td>
                         <td><a class="btn btn-outline-info" href="{{ url('storage/'.$movie->movie) }}" download><i class="fas fa-download"></i> Download</a></td>
                         @if(Auth::user()->type == 'admin' || Auth::user()->type == 'user')
                         <td><a class="btn btn-outline-danger" href="/movies/{{$movie->id}}"><i class="fas fa-trash-alt"></i> Remove</a></td>
