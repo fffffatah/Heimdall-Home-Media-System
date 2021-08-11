@@ -89,7 +89,7 @@
             @if(Auth::user()->type != 'kid')
             <li><a class="dropdown-item" href="{{route('users.index')}}"><i class="fas fa-users"></i> Users</a></li>
             <li><a class="dropdown-item" href="{{route('adduser.index')}}"><i class="fas fa-user-plus"></i> Add User</a></li>
-            <li><a class="dropdown-item" href="#"><i class="fas fa-cog"></i> System Settings</a></li>
+            <li><a class="dropdown-item" href="{{route('settings.index')}}"><i class="fas fa-cog"></i> System Settings</a></li>
             @endif
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="{{route('logout.index')}}"><i class="fas fa-sign-out-alt"></i> Logout</a></li>

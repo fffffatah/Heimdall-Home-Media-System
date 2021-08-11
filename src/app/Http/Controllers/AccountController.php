@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\AccountUpdateRequest;
 use App\Http\Requests\PasswordChangeRequest;
 use Illuminate\Support\Facades\Hash;
+use File;
 
 
 class AccountController extends Controller
@@ -18,6 +19,11 @@ class AccountController extends Controller
 
     public function changePassIndex(){
         return view('changepass');
+    }
+
+    public function settingIndex(){
+        $files = File::directories(public_path('storage'));
+        return view('settings')->with('storages',$files);
     }
 
     public function updateUser(AccountUpdateRequest $request){
