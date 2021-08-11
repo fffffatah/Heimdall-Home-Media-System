@@ -87,8 +87,8 @@ Route::group(['middleware' => ['authuser']], function () {
             Route::get('videoplayer/{id}', ['as'=>'videoplayer.index', 'uses'=>'VideoController@playVideo']);
 
             Route::get('myfiles', ['as'=>'myfiles.index', 'uses'=>'MyfileController@myfileIndex']);
-            Route::get('uploadmyfile', ['as'=>'uploadmyfile.index', 'uses'=>'MyfileController@myfileUploadIndex']);
-            Route::post('uploadmyfile', ['as'=>'uploadmyfile.index', 'uses'=>'MyfileController@myfileUpload']);
+            Route::get('uploadfile', ['as'=>'uploadfile.index', 'uses'=>'MyfileController@myfileUploadIndex']);
+            Route::post('uploadfile', ['as'=>'uploadfile.index', 'uses'=>'MyfileController@myfileUpload']);
         });
     });
 });

@@ -70,9 +70,9 @@
             <i class="fas fa-file"></i> Files
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">My Files</a></li>
+            <li><a class="dropdown-item" href="{{route('myfiles.index')}}">My Files</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#"><i class="fas fa-file-upload"></i> Upload</a></li>
+            <li><a class="dropdown-item" href="{{route('uploadfile.index')}}"><i class="fas fa-file-upload"></i> Upload</a></li>
           </ul>
         </li>
         @endif
