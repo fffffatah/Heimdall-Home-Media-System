@@ -17,7 +17,7 @@ class Songs extends Migration
             $table->id();
             $table->string('title');
             $table->string('song');
-            $table->foreign('album_id')->references('id')->on('albums');
+            $table->foreignId('album_id')->constrained('albums');
             $table->rememberToken();
             $table->timestamps();
         });

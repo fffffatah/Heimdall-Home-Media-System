@@ -19,7 +19,7 @@ class Galleries extends Migration
             $table->string('description');
             $table->date('date');
             $table->string('isagerestricted');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreignId('user_id')->constrained('users');
             $table->rememberToken();
             $table->timestamps();
         });

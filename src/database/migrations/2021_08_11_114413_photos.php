@@ -16,7 +16,7 @@ class Photos extends Migration
         Schema::create('photos', function (Blueprint $table) {
             $table->id();
             $table->string('photo');
-            $table->foreign('gallery_id')->references('id')->on('galleries');
+            $table->foreignId('gallery_id')->constrained('galleries');
             $table->rememberToken();
             $table->timestamps();
         });

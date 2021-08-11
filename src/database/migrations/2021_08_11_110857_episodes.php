@@ -19,7 +19,7 @@ class Episodes extends Migration
             $table->string('description');
             $table->string('episode');
             $table->string('season');
-            $table->foreign('show_id')->references('id')->on('shows');
+            $table->foreignId('show_id')->constrained('shows');
             $table->rememberToken();
             $table->timestamps();
         });
