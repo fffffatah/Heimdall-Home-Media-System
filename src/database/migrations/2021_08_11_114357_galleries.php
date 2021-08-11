@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Shows extends Migration
+class Galleries extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ class Shows extends Migration
      */
     public function up()
     {
-        Schema::create('shows', function (Blueprint $table) {
+        Schema::create('galleries', function (Blueprint $table) {
             $table->id();
-            $table->string('cover');
             $table->string('title');
             $table->string('description');
-            $table->string('genre');
-            $table->string('year');
+            $table->date('date');
             $table->string('isagerestricted');
+            $table->foreignId('user_id')->constrained('users');
             $table->rememberToken();
             $table->timestamps();
         });

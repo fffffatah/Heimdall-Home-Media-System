@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Shows extends Migration
+class Photos extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,10 @@ class Shows extends Migration
      */
     public function up()
     {
-        Schema::create('shows', function (Blueprint $table) {
+        Schema::create('photos', function (Blueprint $table) {
             $table->id();
-            $table->string('cover');
-            $table->string('title');
-            $table->string('description');
-            $table->string('genre');
-            $table->string('year');
-            $table->string('isagerestricted');
+            $table->string('photo');
+            $table->foreignId('gallery_id')->constrained('galleries');
             $table->rememberToken();
             $table->timestamps();
         });
