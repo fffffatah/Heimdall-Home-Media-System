@@ -60,9 +60,9 @@
             <i class="fas fa-video"></i> Videos
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">My Videos</a></li>
+            <li><a class="dropdown-item" href="{{route('videos.index')}}">My Videos</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#"><i class="fas fa-file-upload"></i> Upload</a></li>
+            <li><a class="dropdown-item" href="{{route('uploadvideo.index')}}"><i class="fas fa-file-upload"></i> Upload</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
