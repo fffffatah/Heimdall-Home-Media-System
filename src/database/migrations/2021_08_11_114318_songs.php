@@ -13,7 +13,14 @@ class Songs extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('songs', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->string('song');
+            $table->foreign('album_id')->references('id')->on('albums');
+            $table->rememberToken();
+            $table->timestamps();
+        });
     }
 
     /**

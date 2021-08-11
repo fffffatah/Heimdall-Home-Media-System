@@ -13,7 +13,15 @@ class Myfiles extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('myfiles', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('file');
+            $table->date('date');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->rememberToken();
+            $table->timestamps();
+        });
     }
 
     /**

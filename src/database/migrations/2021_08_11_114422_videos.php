@@ -13,7 +13,13 @@ class Videos extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('videos', function (Blueprint $table) {
+            $table->id();
+            $table->string('video');
+            $table->foreign('gallery_id')->references('id')->on('galleries');
+            $table->rememberToken();
+            $table->timestamps();
+        });
     }
 
     /**

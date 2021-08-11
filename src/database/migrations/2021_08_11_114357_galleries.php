@@ -13,7 +13,16 @@ class Galleries extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('galleries', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->string('description');
+            $table->date('date');
+            $table->string('isagerestricted');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->rememberToken();
+            $table->timestamps();
+        });
     }
 
     /**

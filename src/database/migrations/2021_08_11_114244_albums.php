@@ -13,7 +13,17 @@ class Albums extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('albums', function (Blueprint $table) {
+            $table->id();
+            $table->string('cover');
+            $table->string('title');
+            $table->string('artist');
+            $table->string('genre');
+            $table->string('year');
+            $table->string('isagerestricted');
+            $table->rememberToken();
+            $table->timestamps();
+        });
     }
 
     /**

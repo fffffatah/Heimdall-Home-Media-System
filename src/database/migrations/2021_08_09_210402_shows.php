@@ -13,7 +13,17 @@ class Shows extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('shows', function (Blueprint $table) {
+            $table->id();
+            $table->string('cover');
+            $table->string('title');
+            $table->string('description');
+            $table->string('genre');
+            $table->string('year');
+            $table->string('isagerestricted');
+            $table->rememberToken();
+            $table->timestamps();
+        });
     }
 
     /**

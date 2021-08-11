@@ -13,7 +13,16 @@ class Episodes extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('episodes', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->string('description');
+            $table->string('episode');
+            $table->string('season');
+            $table->foreign('show_id')->references('id')->on('shows');
+            $table->rememberToken();
+            $table->timestamps();
+        });
     }
 
     /**

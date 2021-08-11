@@ -13,7 +13,13 @@ class Photos extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('photos', function (Blueprint $table) {
+            $table->id();
+            $table->string('photo');
+            $table->foreign('gallery_id')->references('id')->on('galleries');
+            $table->rememberToken();
+            $table->timestamps();
+        });
     }
 
     /**
