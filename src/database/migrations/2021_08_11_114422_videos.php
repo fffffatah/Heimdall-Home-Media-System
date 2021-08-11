@@ -15,8 +15,9 @@ class Videos extends Migration
     {
         Schema::create('videos', function (Blueprint $table) {
             $table->id();
-            $table->string('video');
-            $table->foreignId('gallery_id')->constrained('galleries');
+            $table->string('name');
+            $table->string('file');
+            $table->foreignId('user_id')->constrained('users');
             $table->rememberToken();
             $table->timestamps();
         });
