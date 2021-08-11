@@ -89,6 +89,8 @@ Route::group(['middleware' => ['authuser']], function () {
             Route::get('myfiles', ['as'=>'myfiles.index', 'uses'=>'MyfileController@myfileIndex']);
             Route::get('uploadfile', ['as'=>'uploadfile.index', 'uses'=>'MyfileController@myfileUploadIndex']);
             Route::post('uploadfile', ['as'=>'uploadfile.index', 'uses'=>'MyfileController@myfileUpload']);
+
+            Route::get('settings', ['as'=>'settings.index', 'uses'=>'AccountController@settingIndex']);
         });
     });
 });
