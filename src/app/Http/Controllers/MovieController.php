@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UploadMovieRequest;
 use App\Http\Requests\UploadShowRequest;
+use App\Http\Requests\UploadEpisodeRequest;
 use App\Models\Movie;
+use App\Models\Episode;
 use App\Models\Show;
 use Illuminate\Http\Request;
 use File;
@@ -23,6 +25,12 @@ class MovieController extends Controller
 
     public function uploadShowIndex(){
         return view('uploadshow');
+    }
+
+    public function uploadEpisodeIndex(){
+        $shows = Show::all();
+        $files = File::directories(public_path('storage'));
+        return view('uploadepisode')->with('shows',$shows)->with('storages',$files);
     }
 
     public function uploadMovie(UploadMovieRequest $request){
@@ -65,6 +73,25 @@ class MovieController extends Controller
             $request->session()->flash('msg', 'Could Not Upload Show');
         }
         return redirect()->route('uploadshow.index');
+    }
+
+    public function uploadEpisode(UploadEpisodeRequest $request){
+        $episode = new Episode;
+        $epFile = $request->file('episode');
+        $episode->title = $request->title;
+        $episode->description = $request->description;
+        $episode->season = $request->season;
+        $episode->show_id = $request->show;
+        $episodeName = uniqid().".".$epFile->getClientOriginalExtension();
+        $episode->episode = $request->storage."/".$episodeName;
+        if($episode->save()){
+            $epFile->move('storage/'.$request->storage, $episodeName);
+            $request->session()->flash('msg', 'Episode Uploaded');
+        }
+        else{
+            $request->session()->flash('msg', 'Could Not Upload Episode');
+        }
+        return redirect()->route('uploadepisode.index');
     }
 
     public function deleteMovie($id){

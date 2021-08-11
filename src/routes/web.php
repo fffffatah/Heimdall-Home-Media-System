@@ -52,6 +52,8 @@ Route::group(['middleware' => ['authuser']], function () {
             Route::post('uploadmovie', ['as'=>'uploadmovie.index', 'uses'=>'MovieController@uploadMovie']);
             Route::get('uploadshow', ['as'=>'uploadshow.index', 'uses'=>'MovieController@uploadShowIndex']);
             Route::post('uploadshow', ['as'=>'uploadshow.index', 'uses'=>'MovieController@uploadShow']);
+            Route::get('uploadepisode', ['as'=>'uploadepisode.index', 'uses'=>'MovieController@uploadEpisodeIndex']);
+            Route::post('uploadepisode', ['as'=>'uploadepisode.index', 'uses'=>'MovieController@uploadEpisode']);
         });
     });
 });
