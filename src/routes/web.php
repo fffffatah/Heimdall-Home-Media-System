@@ -77,6 +77,18 @@ Route::group(['middleware' => ['authuser']], function () {
 
             Route::get('gallery/{id}', ['as'=>'galleries.delete', 'uses'=>'GalleryController@deleteGallery']);
             Route::get('photo/{id}', ['as'=>'photos.delete', 'uses'=>'GalleryController@deletePhoto']);
+
+            Route::get('videos', ['as'=>'videos.index', 'uses'=>'VideoController@videoIndex']);
+            Route::get('uploadvideo', ['as'=>'uploadvideo.index', 'uses'=>'VideoController@videoUploadIndex']);
+            Route::post('uploadvideo', ['as'=>'uploadvideo.index', 'uses'=>'VideoController@videoUpload']);
+
+            Route::get('video/{id}', ['as'=>'videos.delete', 'uses'=>'VideoController@deleteVideo']);
+            Route::get('myfile/{id}', ['as'=>'myfiles.delete', 'uses'=>'MyfileController@deleteMyfile']);
+            Route::get('videoplayer/{id}', ['as'=>'videoplayer.index', 'uses'=>'VideoController@playVideo']);
+
+            Route::get('myfiles', ['as'=>'myfiles.index', 'uses'=>'MyfileController@myfileIndex']);
+            Route::get('uploadfile', ['as'=>'uploadfile.index', 'uses'=>'MyfileController@myfileUploadIndex']);
+            Route::post('uploadfile', ['as'=>'uploadfile.index', 'uses'=>'MyfileController@myfileUpload']);
         });
     });
 });
