@@ -22,7 +22,7 @@
                         <td>{{$episode->description}}</td>
                         <td>{{$episode->season}}</td>
                         <td><a class="btn btn-outline-primary" href="/tvplayer/{{$episode->id}}"><i class="fas fa-play"></i> Play</a></td>
-                        <td><a class="btn btn-outline-info" href="{{ url('storage/'$episode->episode) }}" download><i class="fas fa-download"></i> Download</a></td>
+                        <td><a class="btn btn-outline-info" href="{{ url('storage/'.$episode->episode) }}" download><i class="fas fa-download"></i> Download</a></td>
                         @if(Auth::user()->type == 'admin' || Auth::user()->type == 'user')
                         <td><a class="btn btn-outline-danger" href="/episode/{{$episode->id}}"><i class="fas fa-trash-alt"></i> Remove</a></td>
                         @endif
