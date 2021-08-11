@@ -68,6 +68,15 @@ Route::group(['middleware' => ['authuser']], function () {
 
             Route::get('album/{id}', ['as'=>'albums.delete', 'uses'=>'MusicController@deleteAlbum']);
             Route::get('song/{id}', ['as'=>'songs.delete', 'uses'=>'MusicController@deleteSong']);
+
+            Route::get('uploadgallery', ['as'=>'uploadgallery.index', 'uses'=>'GalleryController@uploadGalleryIndex']);
+            Route::post('uploadgallery', ['as'=>'uploadgallery.index', 'uses'=>'GalleryController@uploadGallery']);
+            Route::get('galleries', ['as'=>'galleries.index', 'uses'=>'GalleryController@galleryIndex']);
+
+            Route::get('photos/{id}', ['as'=>'photos.index', 'uses'=>'GalleryController@photoIndex']);
+
+            Route::get('gallery/{id}', ['as'=>'galleries.delete', 'uses'=>'GalleryController@deleteGallery']);
+            Route::get('photo/{id}', ['as'=>'photos.delete', 'uses'=>'GalleryController@deletePhoto']);
         });
     });
 });

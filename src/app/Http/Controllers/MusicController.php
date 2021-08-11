@@ -45,9 +45,9 @@ class MusicController extends Controller
                 $song->album_id = $album->id;
                 if($song->save()){
                     $songFile->move('storage/'.$request->storage, $songFile->getClientOriginalName().'.'.$songFile->getClientOriginalExtension());
-                    $request->session()->flash('msg', 'Album Uploaded');
                 }
             }
+            $request->session()->flash('msg', 'Album Uploaded');
         }
         else{
             $request->session()->flash('msg', 'Could Not Upload Album');

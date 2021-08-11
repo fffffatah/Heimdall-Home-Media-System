@@ -44,16 +44,15 @@
             @endif
           </ul>
         </li>
+        @if(Auth::user()->type != 'kid')
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="fas fa-images"></i> Pictures
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">My Pictures</a></li>
-            @if(Auth::user()->type != 'kid')
+            <li><a class="dropdown-item" href="{{route('galleries.index')}}">My Pictures</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#"><i class="fas fa-file-upload"></i> Upload</a></li>
-            @endif
+            <li><a class="dropdown-item" href="{{route('uploadgallery.index')}}"><i class="fas fa-file-upload"></i> Upload</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
@@ -62,13 +61,10 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="#">My Videos</a></li>
-            @if(Auth::user()->type != 'kid')
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#"><i class="fas fa-file-upload"></i> Upload</a></li>
-            @endif
           </ul>
         </li>
-        @if(Auth::user()->type != 'kid')
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="fas fa-file"></i> Files
