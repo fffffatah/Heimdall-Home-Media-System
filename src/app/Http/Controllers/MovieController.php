@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UploadMovieRequest;
+use App\Http\Requests\UploadShowRequest;
 use App\Models\Movie;
+use App\Models\Show;
 use Illuminate\Http\Request;
 use File;
 
@@ -17,6 +19,10 @@ class MovieController extends Controller
     public function uploadMovieIndex(){
         $files = File::directories(public_path('storage'));
         return view('uploadmovie')->with('storages',$files);
+    }
+
+    public function uploadShowIndex(){
+        return view('uploadshow');
     }
 
     public function uploadMovie(UploadMovieRequest $request){
@@ -40,6 +46,25 @@ class MovieController extends Controller
             $request->session()->flash('msg', 'Could Not Upload Movie');
         }
         return redirect()->route('movie.index');
+    }
+
+    public function uploadShow(UploadShowRequest $request){
+        $show = new Show;
+        $img = $request->file('cover');
+        $show->cover = uniqid().".".$img->getClientOriginalExtension();
+        $show->title = $request->title;
+        $show->description = $request->description;
+        $show->year = $request->year;
+        $show->genre = $request->genre;
+        $show->isagerestricted = $request->isagerestricted;
+        if($show->save()){
+            $img->move('upload/showcovers', $show->cover);
+            $request->session()->flash('msg', 'Show Uploaded');
+        }
+        else{
+            $request->session()->flash('msg', 'Could Not Upload Show');
+        }
+        return redirect()->route('uploadshow.index');
     }
 
     public function deleteMovie($id){

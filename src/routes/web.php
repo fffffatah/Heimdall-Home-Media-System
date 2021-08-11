@@ -50,6 +50,8 @@ Route::group(['middleware' => ['authuser']], function () {
             Route::get('movies/{id}', ['as'=>'movie.delete', 'uses'=>'MovieController@deleteMovie']);
             Route::get('uploadmovie', ['as'=>'uploadmovie.index', 'uses'=>'MovieController@uploadMovieIndex']);
             Route::post('uploadmovie', ['as'=>'uploadmovie.index', 'uses'=>'MovieController@uploadMovie']);
+            Route::get('uploadshow', ['as'=>'uploadshow.index', 'uses'=>'MovieController@uploadShowIndex']);
+            Route::post('uploadshow', ['as'=>'uploadshow.index', 'uses'=>'MovieController@uploadShow']);
         });
     });
 });

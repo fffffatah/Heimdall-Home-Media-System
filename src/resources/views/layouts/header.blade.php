@@ -27,7 +27,7 @@
             @if(Auth::user()->type != 'kid')
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="{{route('uploadmovie.index')}}"><i class="fas fa-file-upload"></i> Upload Movie</a></li>
-            <li><a class="dropdown-item" href="#"><i class="fas fa-file-upload"></i> Upload TV</a></li>
+            <li><a class="dropdown-item" href="{{route('uploadshow.index')}}"><i class="fas fa-file-upload"></i> Upload TV</a></li>
             @endif
           </ul>
         </li>
