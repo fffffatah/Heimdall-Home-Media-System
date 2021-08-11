@@ -48,7 +48,8 @@ class MovieController extends Controller
     }
 
     public function playMovie($id){
-
+        $movie = Movie::find($id);
+        return view('movieplayer')->with('movie',$movie);
     }
 
     public function playTv($id){
