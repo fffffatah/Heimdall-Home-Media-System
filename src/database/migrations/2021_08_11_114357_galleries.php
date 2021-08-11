@@ -17,8 +17,6 @@ class Galleries extends Migration
             $table->id();
             $table->string('title');
             $table->string('description');
-            $table->date('date');
-            $table->string('isagerestricted');
             $table->foreignId('user_id')->constrained('users');
             $table->rememberToken();
             $table->timestamps();

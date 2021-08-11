@@ -17,7 +17,6 @@ class Myfiles extends Migration
             $table->id();
             $table->string('name');
             $table->string('file');
-            $table->date('date');
             $table->foreignId('user_id')->constrained('users');
             $table->rememberToken();
             $table->timestamps();

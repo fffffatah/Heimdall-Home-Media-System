@@ -40,6 +40,11 @@ Route::group(['middleware' => ['authuser']], function () {
         Route::get('movies', ['as'=>'movie.index', 'uses'=>'MovieController@movieIndex']);
         Route::get('movieplayer/{id}', ['as'=>'movieplayer.index', 'uses'=>'MovieController@playMovie']);
         Route::get('tvplayer/{id}', ['as'=>'tvplayer.index', 'uses'=>'MovieController@playTv']);
+        Route::get('shows', ['as'=>'shows.index', 'uses'=>'MovieController@showIndex']);
+        Route::get('episodes/{id}', ['as'=>'episodes.index', 'uses'=>'MovieController@episodeIndex']);
+        //ALBUM AND SONGS
+        Route::get('albums', ['as'=>'albums.index', 'uses'=>'MusicController@albumIndex']);
+        Route::get('songs/{id}', ['as'=>'songs.index', 'uses'=>'MusicController@songIndex']);
 
         Route::group(['middleware' => ['isadmin']], function () {
             Route::get('users', ['as'=>'users.index', 'uses'=>'UserController@index']);
@@ -50,6 +55,28 @@ Route::group(['middleware' => ['authuser']], function () {
             Route::get('movies/{id}', ['as'=>'movie.delete', 'uses'=>'MovieController@deleteMovie']);
             Route::get('uploadmovie', ['as'=>'uploadmovie.index', 'uses'=>'MovieController@uploadMovieIndex']);
             Route::post('uploadmovie', ['as'=>'uploadmovie.index', 'uses'=>'MovieController@uploadMovie']);
+            Route::get('uploadshow', ['as'=>'uploadshow.index', 'uses'=>'MovieController@uploadShowIndex']);
+            Route::post('uploadshow', ['as'=>'uploadshow.index', 'uses'=>'MovieController@uploadShow']);
+            Route::get('uploadepisode', ['as'=>'uploadepisode.index', 'uses'=>'MovieController@uploadEpisodeIndex']);
+            Route::post('uploadepisode', ['as'=>'uploadepisode.index', 'uses'=>'MovieController@uploadEpisode']);
+
+            Route::get('shows/{id}', ['as'=>'shows.delete', 'uses'=>'MovieController@deleteShow']);
+            Route::get('episode/{id}', ['as'=>'episodes.delete', 'uses'=>'MovieController@deleteEpisode']);
+
+            Route::get('uploadalbum', ['as'=>'uploadalbum.index', 'uses'=>'MusicController@uploadAlbumIndex']);
+            Route::post('uploadalbum', ['as'=>'uploadalbum.index', 'uses'=>'MusicController@uploadAlbum']);
+
+            Route::get('album/{id}', ['as'=>'albums.delete', 'uses'=>'MusicController@deleteAlbum']);
+            Route::get('song/{id}', ['as'=>'songs.delete', 'uses'=>'MusicController@deleteSong']);
+
+            Route::get('uploadgallery', ['as'=>'uploadgallery.index', 'uses'=>'GalleryController@uploadGalleryIndex']);
+            Route::post('uploadgallery', ['as'=>'uploadgallery.index', 'uses'=>'GalleryController@uploadGallery']);
+            Route::get('galleries', ['as'=>'galleries.index', 'uses'=>'GalleryController@galleryIndex']);
+
+            Route::get('photos/{id}', ['as'=>'photos.index', 'uses'=>'GalleryController@photoIndex']);
+
+            Route::get('gallery/{id}', ['as'=>'galleries.delete', 'uses'=>'GalleryController@deleteGallery']);
+            Route::get('photo/{id}', ['as'=>'photos.delete', 'uses'=>'GalleryController@deletePhoto']);
         });
     });
 });
