@@ -6,7 +6,7 @@
             <div class="d-flex justify-content-center">
             <div class="card" style="width: 18rem;">
                 <div class="card-header">
-                    Upload Show
+                    Create Show
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
