@@ -18,6 +18,17 @@ class MovieController extends Controller
         return view('movies')->with('movies',$movies);
     }
 
+    public function showIndex(){
+        $shows = Show::all();
+        return view('shows')->with('shows',$shows);
+    }
+
+    public function episodeIndex($id){
+        $show = Show::find($id);
+        $episodes = Episode::where('show_id',$id)->get();
+        return view('episodes')->with('episodes',$episodes)->with('show',$show);
+    }
+
     public function uploadMovieIndex(){
         $files = File::directories(public_path('storage'));
         return view('uploadmovie')->with('storages',$files);
@@ -99,12 +110,24 @@ class MovieController extends Controller
         return redirect()->route('movie.index');
     }
 
+    public function deleteShow($id){
+        $show = Show::destroy($id);
+        return redirect()->route('shows.index');
+    }
+
+    public function deleteEpisode($id){
+        $episode = Episode::destroy($id);
+        return redirect()->route('shows.index');
+    }
+
     public function playMovie($id){
         $movie = Movie::find($id);
         return view('movieplayer')->with('movie',$movie);
     }
 
     public function playTv($id){
-        
+        $episode = Episode::find($id);
+        $show = Show::find($episode->show_id);
+        return view('tvplayer')->with('episode',$episode)->with('show',$show);
     }
 }
