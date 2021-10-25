@@ -46,7 +46,7 @@ cd src/database && touch database.sqlite
 php artisan migrate
 ```
 
-We want our media server to start on boot or reboot. In order to achieve that, we will have to  perform a few extra configurations. The configuration scripts will be automatically downloaded when you clone the repository in previous step. The scripts will be downloaded at ‘HeimdallHome-Media-System/scripts’ folder.
+We want our media server to start on boot or reboot. In order to achieve that, we will have to  perform a few extra configurations. The configuration scripts will be automatically downloaded when you clone the repository in previous step. The scripts will be downloaded at ‘Heimdall-Home-Media-System/scripts’ folder.
 
 
 >   Firstly, we will have to give execute permission to the scripts, and to do that run the  commands one by one,
